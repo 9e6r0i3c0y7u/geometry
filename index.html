@@ -390,7 +390,6 @@
   const ICONS = {
     rect: ({a,b}) => `
 <svg viewBox="0 0 100 80" role="img" aria-label="長方形">
-
   <!-- 長方形本體 -->
   <rect x="15" y="15" width="70" height="45" rx="4"
         fill="rgba(255,255,255,0.08)"
@@ -404,7 +403,7 @@
   <line x1="90" y1="15" x2="90" y2="60"
         stroke="#ccc" stroke-width="2"></line>
 
-  <!-- 長 -->
+  <!-- 長（底部） -->
   <text x="50" y="78"
         text-anchor="middle"
         fill="black"
@@ -413,14 +412,14 @@
     長 ${a}
   </text>
 
-  <!-- 寬（不旋轉，比較好看） -->
-  <text x="92" y="40"
+  <!-- 寬（右側：改成靠右對齊，文字往左長，就不會被裁掉） -->
+  <text x="98" y="42"
+        text-anchor="end"
         fill="black"
         font-size="10"
         font-weight="bold">
     寬 ${b}
   </text>
-
 </svg>
 `,
 
@@ -460,24 +459,70 @@
       </svg>`,
 
     rectprism: ({l,w,h}) => `
-      <svg viewBox="0 0 64 64" role="img" aria-label="長方體">
-        <path d="M16 26 L28 18 L50 18 L38 26 Z"></path>
-        <rect x="16" y="26" width="22" height="22" rx="2"></rect>
-        <path d="M38 26 L50 18 L50 40 L38 48 Z"></path>
-        <text x="27" y="61" text-anchor="middle">長 ${l}</text>
-        <text x="58" y="36" text-anchor="middle" transform="rotate(90 58 36)">高 ${h}</text>
-        <text x="44" y="16" text-anchor="middle">寬 ${w}</text>
-      </svg>`,
+<svg viewBox="0 0 100 80" role="img" aria-label="長方體">
+  <!-- 上面 -->
+  <path d="M18 30 L34 18 L82 18 L66 30 Z"
+        fill="rgba(255,255,255,0.08)" stroke="#ddd" stroke-width="3"></path>
+
+  <!-- 正面 -->
+  <rect x="18" y="30" width="48" height="36" rx="2"
+        fill="rgba(255,255,255,0.06)" stroke="#ddd" stroke-width="3"></rect>
+
+  <!-- 右側 -->
+  <path d="M66 30 L82 18 L82 54 L66 66 Z"
+        fill="rgba(255,255,255,0.05)" stroke="#ddd" stroke-width="3"></path>
+
+  <!-- 寬（上方，往下移避免切） -->
+  <text x="58" y="12" text-anchor="middle"
+        fill="black" font-size="10" font-weight="bold">
+    寬 ${w}
+  </text>
+
+  <!-- 長（底部） -->
+  <text x="42" y="78" text-anchor="middle"
+        fill="black" font-size="10" font-weight="bold">
+    長 ${l}
+  </text>
+
+  <!-- 高（右側：用 end，避免切） -->
+  <text x="98" y="48" text-anchor="end"
+        fill="black" font-size="10" font-weight="bold">
+    高 ${h}
+  </text>
+</svg>
+`,
 
     cyl: ({r,h}) => `
-      <svg viewBox="0 0 64 64" role="img" aria-label="圓柱">
-        <ellipse cx="32" cy="18" rx="16" ry="7"></ellipse>
-        <path d="M16 18 v26 c0 4 7 7 16 7s16-3 16-7V18"></path>
-        <path d="M32 18 L48 18" />
-        <path d="M52 18 V46" />
-        <text x="40" y="14" text-anchor="middle">半徑 ${r}</text>
-        <text x="60" y="34" text-anchor="middle" transform="rotate(90 60 34)">高 ${h}</text>
-      </svg>`,
+<svg viewBox="0 0 100 80" role="img" aria-label="圓柱">
+  <!-- 上橢圓 -->
+  <ellipse cx="50" cy="20" rx="26" ry="10"
+           fill="rgba(255,255,255,0.08)" stroke="#ddd" stroke-width="3"></ellipse>
+
+  <!-- 側面 -->
+  <path d="M24 20 V56 C24 62 36 68 50 68 C64 68 76 62 76 56 V20"
+        fill="rgba(255,255,255,0.05)" stroke="#ddd" stroke-width="3"></path>
+
+  <!-- 半徑線 -->
+  <line x1="50" y1="20" x2="76" y2="20"
+        stroke="#ccc" stroke-width="2"></line>
+
+  <!-- 半徑字（上方：往下移、並靠左一點避免切） -->
+  <text x="63" y="12" text-anchor="middle"
+        fill="black" font-size="10" font-weight="bold">
+    半徑 ${r}
+  </text>
+
+  <!-- 高的尺寸線 -->
+  <line x1="86" y1="20" x2="86" y2="56"
+        stroke="#ccc" stroke-width="2"></line>
+
+  <!-- 高字（右側：用 end，避免切） -->
+  <text x="98" y="40" text-anchor="end"
+        fill="black" font-size="10" font-weight="bold">
+    高 ${h}
+  </text>
+</svg>
+`,
 
     cone: ({r,h}) => `
       <svg viewBox="0 0 64 64" role="img" aria-label="圓錐">
