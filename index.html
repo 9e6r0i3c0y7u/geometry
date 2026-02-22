@@ -389,40 +389,14 @@
   // ---------- SVG icons with Chinese dimension labels ----------
   const ICONS = {
     rect: ({a,b}) => `
-<svg viewBox="0 0 100 80" role="img" aria-label="長方形">
-  <!-- 長方形本體 -->
-  <rect x="15" y="15" width="70" height="45" rx="4"
-        fill="rgba(255,255,255,0.08)"
-        stroke="#ddd" stroke-width="3"></rect>
-
-  <!-- 底邊尺寸線 -->
-  <line x1="15" y1="68" x2="85" y2="68"
-        stroke="#ccc" stroke-width="2"></line>
-
-  <!-- 右側尺寸線 -->
-  <line x1="90" y1="15" x2="90" y2="60"
-        stroke="#ccc" stroke-width="2"></line>
-
-  <!-- 長（底部） -->
-  <text x="50" y="78"
-        text-anchor="middle"
-        fill="black"
-        font-size="10"
-        font-weight="bold">
-    長 ${a}
-  </text>
-
-  <!-- 寬（右側：改成靠右對齊，文字往左長，就不會被裁掉） -->
-  <text x="98" y="42"
-        text-anchor="end"
-        fill="black"
-        font-size="10"
-        font-weight="bold">
-    寬 ${b}
-  </text>
-</svg>
-`,
-
+  <svg viewBox="0 0 64 64" role="img" aria-label="長方形">
+    <rect x="14" y="18" width="36" height="28" rx="4"></rect>
+    <path d="M14 50 H50" />
+    <path d="M52 18 V46" />
+    <text x="32" y="61" text-anchor="middle">長 ${a}</text>
+    <text x="60" y="34" text-anchor="middle"
+          transform="rotate(90 60 34)">寬 ${b}</text>
+  </svg>`,
     tri: ({b,h}) => `
       <svg viewBox="0 0 64 64" role="img" aria-label="三角形">
         <path d="M14 46 L32 16 L50 46 Z"></path>
