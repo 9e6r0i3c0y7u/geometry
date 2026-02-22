@@ -1,4 +1,4 @@
-const CACHE_NAME = "area-volume-trainer-v1";
+const CACHE_NAME = "area-volume-trainer-v2";
 const ASSETS = [
   "./",
   "./index.html",
